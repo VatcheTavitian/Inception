@@ -1,6 +1,6 @@
 FROM alpine:3.18
 
-ARG CERTIFICATE
+ARG CERTIFICATE_PATH
 ARG VALUE_
 
 RUN apk update && \

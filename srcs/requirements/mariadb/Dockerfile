@@ -4,7 +4,7 @@ ARG DB_NAME
 ARG DB_USER
 ARG DB_PASS
 ARG DB_HOST
-
+ARG ROOT_PASS
 
 RUN apk update && apk add --no-cache mariadb mariadb-client 
 
