@@ -26,6 +26,10 @@ fclean:
 	docker volume prune --force
 	echo -e "$(RED)All docker images and networks and volumes removed$(RESET)"
 
+deletelocal: fclean
+	echo "$(RED)DELETING LOCALLY STORED FILES!!!!$(RESET)";
+	rm -rf /home/root/data/
+
 dirs:
 	echo "$(GREEN)Checking directories exist$(RESET)";
 	if [ ! -d "/home/$(USER)/data" ]; then \
@@ -34,5 +38,5 @@ dirs:
 	    mkdir -p /home/$(USER)/data/wordpress; \
 	fi
 
-.PHONY: all build down re clean fclean dirs
+.PHONY: all build down re clean fclean deletelocal dirs
 
