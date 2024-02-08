@@ -38,7 +38,6 @@ COPY tools/configscript.sh wpconfigscript.sh
 
 RUN echo "Creating wordpress configurations"
 
-
 RUN sh wpscript.sh && \
 	rm -rf wpscript.sh
 
