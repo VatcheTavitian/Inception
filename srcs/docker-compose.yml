@@ -9,7 +9,8 @@ services:
       context: ./requirements/nginx/
       dockerfile: Dockerfile
       args:
-        CERTIFICATE: ${CERT}
+        CERTIFICATE: ${CERTIFICATE}
+        VALUE_: ${VALUE_}
     env_file:
       - .env
     ports:
