@@ -4,7 +4,6 @@ if [ ! -d "/var/lib/mysql" ] || [ -z "$(ls -A /var/lib/mysql)" ]; then
     mkdir -p /var/lib/mysql
     chown -R mysql:mysql /var/lib/mysql
     mysql_install_db --basedir=/usr --datadir=/var/lib/mysql --user=mysql --rpm
-    tfile=$(mktemp) && [ -f "$tfile" ] || return 1
 fi
 
 if [ ! -d "/var/lib/mysql/wordpress" ]; then
@@ -13,7 +12,7 @@ USE mysql;
 FLUSH PRIVILEGES;
 DELETE FROM mysql.user WHERE User='';
 CREATE DATABASE ${DB_NAME} CHARACTER SET utf8 COLLATE utf8_general_ci;
-ALTER USER 'root'@'localhost' IDENTIFIED BY '${ROOT_PASS}';
+ALTER USER 'root'@'localhost' IDENTIFIED BY '${DB_PASS}';
 CREATE USER '${DB_USER}'@'%' IDENTIFIED by '${DB_PASS}';
 GRANT ALL PRIVILEGES ON ${DB_NAME}.* TO '${DB_USER}'@'%';
 FLUSH PRIVILEGES;
